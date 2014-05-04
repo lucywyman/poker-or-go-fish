@@ -1,3 +1,4 @@
+#include "errorcheck.hpp"
 
 using namespace std;
 

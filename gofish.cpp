@@ -1,4 +1,4 @@
-#include "goFish.hpp"
+#include "gofish.hpp"
 
 using namespace std;
 
@@ -8,14 +8,21 @@ Gofish::Gofish(){
 Gofish::~Gofish(){
 }
 
-void Gofish::start(Gofish * goFish, Deck *deck, int humans, int ai){
-	goFish.p.resize(humans+ai);
-	for (int i = 0; i<(humans+ai); i++)
-		goFish.p.at(i).number = i+1;
-	goFish.set_players(humans+ai);
+int Gofish::get_players(){
+	return this->players;
+}
 
-	goFish.deal(&goFish.p, &deck);
-	goFish.playGame(&goFish, &goFish.p; &deck);
+void Gofish::set_players(int players){
+	this->players = players;
+}
+
+void Gofish::start(Gofish * goFish, Deck *deck, int humans, int ai){
+	goFish->p.resize(humans+ai);
+	for (int i = 0; i<(humans+ai); i++)
+		goFish->p.at(i).number = i+1;
+	goFish->set_players(humans+ai);
+	goFish->deal(&goFish->p, deck, 7);
+	goFish->playGame(goFish, &goFish->p, deck);
 }
 
 int Gofish::ask(Player *asking, Player *beingAsked, int cardAskedFor){
@@ -33,19 +40,20 @@ int Gofish::ask(Player *asking, Player *beingAsked, int cardAskedFor){
 }
 
 
-void Gofish::playGame(GoFish *goFish, vector<Player> *p, Deck *deck){
+void Gofish::playGame(Gofish *goFish, vector<Player> *p, Deck *deck){
 	int pBeingAsked, cardAskedFor, cardsBack;
 	while (1){
 		int i = 0;
 		for(i = 0; i<goFish->players; i++){
+			goFish->checkForWin(&p->at(i));
 			goFish->printHand(p->at(i));
 			cout<<"Player "<<i+1<<", which player would you like to ask for their cards?  ";
 			pBeingAsked = goFish->checkPlayerInput(0, i, goFish->players);
 			cout<<"Player "<<i+1<<", what number do you want to ask for?  ";
-			cardAskedFor = goFish->checkcard(0);
+			cardAskedFor = goFish->checkCard(0);
 			cardsBack = ask(&p->at(i), &p->at(pBeingAsked-1), cardAskedFor);
 			if(cardsBack == 0)
-				p->at(i).hand.push_back(deck->getTopCard(&deck->cards));
+				p->at(i).hand.push_back(deck->getTopCard(&deck->deck));
 			goFish->checkForSet(&p->at(i), deck);
 			goFish->checkForWin(&p->at(i));
 		}
@@ -97,7 +105,7 @@ void Gofish::checkForSet(Player *p, Deck *ocean){
 						i--;
 					}
 				}
-				cout<<"You got a set!  Congratulations!"<<endl;
+				cout<<"You got a set of "<<i<<"'s!  Congratulations!"<<endl;
 			}
 		}
 	}
@@ -105,7 +113,7 @@ void Gofish::checkForSet(Player *p, Deck *ocean){
 
 
 void Gofish::checkForWin(Player *p){
-	if (p->hand.size() == 0){
+	if (p->hand.size() <= 0){
 		cout<<"Player "<<p->number<<" wins!!  Congratulations!"<<endl;
 		exit(1);
 	}

@@ -3,6 +3,7 @@
 
 #include "deck.hpp"
 #include<vector>
+#include<string>
 
 using namespace std;
 
@@ -16,7 +17,6 @@ class Player{
 		void set_hand(vector<Card>);
 		int get_number();
 		void set_number(int);
-	private:
 		vector<Card> hand;
 		int number;
 };

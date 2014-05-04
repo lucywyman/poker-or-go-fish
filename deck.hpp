@@ -1,9 +1,9 @@
 #ifndef DECK_H
 #define DECK_H
 
-#include "controller.hpp"
 #include<vector>
 #include<string>
+#include<cstdlib>
 
 using namespace std;
 
@@ -24,11 +24,9 @@ class Deck{
 		void set_deck(vector<Card>);
 		void set_discard(vector<Card>);
 		int get_cards_in_play();
-		void set_cards_in_play();
-	private:
+		void set_cards_in_play(int);
 		int cards_in_play;
 		vector<Card> deck;
 		vector<Card> discard;
-	friend class Controller;
 };
 #endif

@@ -1,5 +1,5 @@
-//#include "poker.hpp"
 #include "deck.hpp"
+#include <iostream>
 
 using namespace std;
 
@@ -12,6 +12,7 @@ Deck::~Deck(){}
 Deck::Deck(int size){
 	this->cards_in_play = size;
 	string suitstring;
+	this->deck.resize(size);
 	int i = 0;
 	for (int suit = 1; suit<=4; suit++){
 		if (suit == 1)
@@ -30,7 +31,7 @@ Deck::Deck(int size){
 	}  
 }
 
-vector<Card> Deck::const &get_deck(){
+/*vector<Card> Deck::&get_deck(){
 	return this->deck;
 }
 
@@ -38,7 +39,7 @@ void Deck::set_deck(vector<Card> deck){
 	this->deck = deck;
 }
 
-vector<Card> Deck::const &get_discard(){
+vector<Card> Deck::&get_discard(){
 	return this->discard;
 }
 
@@ -53,14 +54,14 @@ int Deck::get_cards_in_play(){
 void Deck::set_cards_in_play(int cards_in_play){
 	this->cards_in_play;
 }
-
+*/
 void Deck::shuffle(vector<Card> *deck){
 	int i, j, a;
 	Card temp;
 	srand(time(NULL));
-	a = deck.size()-1;
-	for(b = 0; b<4; b++){
-		for(i = 0; i<a; i++){
+	a = deck->size()-1;
+	for(int b = 0; b<4; b++){
+		for(i = 0; i<a/4; i++){
 			j = rand()%a;
 			temp = deck->at(i);
 			deck->at(i) = deck->at(j);

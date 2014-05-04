@@ -8,7 +8,7 @@ Player::Player(){
 Player::~Player(){
 }
 
-vector<Card> Player::const &get_hand(){
+/*vector<Card> Player::const &get_hand(){
 	return this->hand;
 }
 
@@ -22,6 +22,6 @@ int get_number(){
 
 void set_number(int number){
 	this->number = number;
-}
+}*/
 
 

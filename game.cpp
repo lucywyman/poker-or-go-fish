@@ -1,4 +1,5 @@
 #include "game.hpp"
+#include<iostream>
 
 using namespace std;
 
@@ -8,11 +9,11 @@ Game::Game(){
 Game::~Game(){
 }
 
-int Game::get_players(){
+/*int Game::get_humans(){
 	return this->players;
 }
 
-void Game::set_players(int players){
+void Game::set_humans(int players){
 	this->players = players;
 }
 
@@ -24,12 +25,21 @@ void Game::set_win(char win){
 	this->win = win;
 }
 
-vector<Player> Game::get_P(){
+vector<Player> Game::const &get_P(){
 	return this->P;
 }
 
 void Game::set_P(vector<Player> P){
 	this->P = P;
+}
+*/
+
+int Game::get_players(){
+	return this->players;
+}
+
+void Game::set_players(int players){
+	this->players = players;
 }
 
 void Game::deal(vector<Player> *P, Deck *deck, int size){

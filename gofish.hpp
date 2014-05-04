@@ -1,9 +1,7 @@
 #ifndef GOFISH_H
 #define GOFISH_H
 
-#include "game.hpp"
-#include "deck.hpp"
-#include "player.hpp"
+#include "controller.hpp"
 
 using namespace std;
 
@@ -14,6 +12,8 @@ class Gofish: public Game{
 		void start(Gofish *, Deck *, int, int);
 		int ask(Player *, Player *, int);
 		void playGame(Gofish *, vector<Player> *, Deck *);
+		int get_players();
+		void set_players(int);
 		int checkPlayerInput(int, int, int);
 		int checkCard(int);
 		void checkForSet(Player *, Deck *);

@@ -4,9 +4,8 @@
 #include "deck.hpp"
 #include "game.hpp"
 #include "player.hpp"
-#include "human.hpp"
-#include "goFish.hpp"
-#include "fiveCard.hpp"
+#include "gofish.hpp"
+#include "errorcheck.hpp"
 #include <iostream>
 #include <string>
 
