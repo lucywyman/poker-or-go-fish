@@ -12,7 +12,7 @@ class Game{
 		Game();
 		~Game(); 
 		virtual void deal(vector<Player>*, Deck*, int);
-		void printHand(Player);
+		virtual void printHand(Player);
 		//virtual int get_ai();
 		//virtual void set_ai(int);
 		//char get_win();

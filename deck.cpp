@@ -7,7 +7,9 @@ Deck::Deck(){
 	this->cards_in_play = 52;
 }
 
-Deck::~Deck(){}
+Deck::~Deck(){
+	cout<<"DELETING"<<endl;
+}
 
 Deck::Deck(int size){
 	this->cards_in_play = size;

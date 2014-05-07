@@ -11,14 +11,13 @@ class Player{
 	public:
 		Player();
 		~Player();
-		//Card discard();
-		//Card getCard(Deck);
 		vector<Card> const &get_hand();
 		void set_hand(vector<Card>);
 		int get_number();
 		void set_number(int);
 		vector<Card> hand;
 		int number;
+		int points;
 };
 
 #endif

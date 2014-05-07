@@ -6,6 +6,7 @@
 #include "player.hpp"
 #include "gofish.hpp"
 #include "errorcheck.hpp"
+#include "fivecard.hpp"
 #include <iostream>
 #include <string>
 

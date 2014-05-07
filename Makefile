@@ -1,22 +1,25 @@
 CPPC=clang++
 
-all: main.o controller.o deck.o player.o game.o goFish.o
-	$(CPPC) main.o controller.o deck.o player.o game.o goFish.o -o game
+all: main.o controller.o deck.o player.o game.o goFish.o fivecard.o
+	clang++ main.o controller.o deck.o player.o game.o goFish.o fivecard.o -o game
 
 controller.o: controller.cpp
-	$(CPPC) -c controller.cpp 
+	clang++ -c controller.cpp 
 
 deck.o: deck.cpp
-	$(CPPC) -c deck.cpp
+	clang++ -c deck.cpp
 
 player.o: player.cpp
-	$(CPPC) -c player.cpp
+	clang++ -c player.cpp
 
 game.o: game.cpp
-	$(CPPC) -c game.cpp
+	clang++ -c game.cpp
 
 goFish.o: goFish.cpp
-	$(CPPC) -c goFish.cpp
+	clang++ -c goFish.cpp
+
+fivecard.o: fivecard.cpp
+	clang++ -c fivecard.cpp
 
 clean:
 	rm -rf *.o game

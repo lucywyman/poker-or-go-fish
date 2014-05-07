@@ -3,6 +3,7 @@
 using namespace std;
 
 Player::Player(){
+	this->points = 0;
 }
 
 Player::~Player(){

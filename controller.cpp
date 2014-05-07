@@ -69,9 +69,18 @@ void Controller::start(){
 		goFish->start(goFish, deck, humans, ai);	
 	}
 	else if (game == "5-Card draw" || game == "5-card draw" || game == "5-Card Draw" || game == "5-card Draw"){
-		Fivecard* fiveCard;
-		fiveCard->start(&fiveCard, &deck, this->humans, this->ai);
+		Fivecard* fiveCard = new Fivecard();
+		fiveCard->set_rounds();
+		int rounds = fiveCard->get_rounds();
+		for (int r = 0; r<rounds; r++){
+			int b = 0;
+			Deck* deck = new Deck(52);
+			deck->shuffle(&deck->deck);
+			if (r == rounds)
+				b = 1;
+			fiveCard->start(fiveCard, deck, this->humans, this->ai, b);
+			cout<<"\033[1;32mEnd of Round "<<r<<"\033[0m"<<endl;
+		}
 	}
 }
-
 
